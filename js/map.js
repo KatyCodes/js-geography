@@ -44,11 +44,19 @@ Map.prototype.locateUser = function() {
               },
             ]
       });
+
       this.marker = new google.maps.Marker({
-          position: pos,
-          icon: '/img/pin.png',
-          map: this.map
-        });
+        position: pos,
+        icon: '/img/pin.png',
+        map: this.map
+      });
+
+      map.addListener("click", function (event) {
+        var latitude = event.latLng.lat();
+        var longitude = event.latLng.lng();
+        console.log( latitude + ', ' + longitude );
+      });
+
     }, function(error) {
       $('#map').text(error);
     });
