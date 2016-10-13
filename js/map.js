@@ -1,5 +1,3 @@
-// var apiKey = require('./../.env').apiKey;
-
 function Map() {
 }
 
@@ -12,7 +10,39 @@ Map.prototype.locateUser = function() {
       };
       this.map = new google.maps.Map(document.getElementById('map'), {
         center: pos,
-        zoom: 8
+        zoom: 3,
+        styles: [
+              {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
+              {elementType: 'labels.text.fill', stylers: [{visibility: 'off'}]},
+              {elementType: 'labels.text.stroke', stylers: [{visibility: 'off'}]},
+              {
+                featureType: 'administrative',
+                elementType: 'geometry.stroke',
+                stylers: [{color: '#000000'}]
+              },
+              {
+                featureType: 'landscape',
+                elementType: 'geometry',
+                stylers: [{color: '#ebe3cd'}]
+              },
+              {
+                featureType: 'poi',
+                stylers: [{visibility: 'off'}]
+              },
+              {
+                featureType: 'road',
+                stylers: [{visibility: 'off'}]
+              },
+              {
+                featureType: 'transit',
+                stylers: [{visibility: 'off'}]
+              },
+              {
+                featureType: 'water',
+                elementType: 'geometry.fill',
+                stylers: [{color: '#0077b3'}]
+              },
+            ]
       });
       this.marker = new google.maps.Marker({
           position: pos,
