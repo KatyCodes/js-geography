@@ -1,4 +1,7 @@
+var apiKey = require('./../.env').apiKey;
+
 function Map() {
+
 }
 
 Map.prototype.locateUser = function() {
@@ -10,7 +13,7 @@ Map.prototype.locateUser = function() {
       };
       this.map = new google.maps.Map(document.getElementById('map'), {
         center: pos,
-        zoom: 3,
+        zoom: 2,
         styles: [
               {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
               {elementType: 'labels.text.fill', stylers: [{visibility: 'off'}]},
@@ -45,17 +48,21 @@ Map.prototype.locateUser = function() {
             ]
       });
 
-      this.marker = new google.maps.Marker({
-        position: pos,
-        icon: '/img/pin.png',
-        map: this.map
-      });
-
-      map.addListener("click", function (event) {
+      this.map.addListener("click", function (event) {
         var latitude = event.latLng.lat();
         var longitude = event.latLng.lng();
-        console.log( latitude + ', ' + longitude );
+        $.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + apiKey, function(response){
+          var country = '';
+          response.results["0"].address_components.forEach(function(item) {
+            if (item.types.includes('country')) {
+              country = item.long_name;
+            }
+          });
+          this.userCountry = country;
+          $("#countryClicked").html(country);
+        });
       });
+
 
     }, function(error) {
       $('#map').text(error);
