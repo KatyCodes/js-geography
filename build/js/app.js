@@ -1,3 +1,7 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+exports.apiKey = "AIzaSyCC7tb5bNrb6jyBHOUfApZkmPJQ87vlym8";
+
+},{}],2:[function(require,module,exports){
 var apiKey = require('./../.env').apiKey;
 
 function Map() {
@@ -104,3 +108,36 @@ Map.prototype.locateUser = function() {
 };
 
 exports.mapModule = Map;
+
+},{"./../.env":1}],3:[function(require,module,exports){
+var apiKey = require('./../.env').apiKey;
+var Map = require('./../js/map.js').mapModule;
+
+$('head').append('<script src=\"https://maps.googleapis.com/maps/api/js?key=' + apiKey + '\" async defer></script>');
+
+$(document).ready(function() {
+
+  var map = new Map();
+  map.locateUser();
+
+  $('#start').click(function() {
+    map.randomCountry();
+    $('#country').html(map.answer);
+    $('#instruction').text("Now go to the map and click on the country");
+    $('#start').hide();
+
+  });
+
+  $('#next').click(function(){
+    map.score = 0;
+    $('#score').text('0');
+    map.randomCountry();
+    $('#country').html(map.answer);
+    map.marker.setMap(null);
+    $('#instruction').text("Now go to the map and click on the country");
+    $(this).hide();
+    map.map.setZoom(2);
+  });
+});
+
+},{"./../.env":1,"./../js/map.js":2}]},{},[3]);
