@@ -1,4 +1,4 @@
-var apiKey = require('./../.env').apiKey;
+var apiKey = require('REMOVED_GOOGLE_API_KEY').apiKey;
 var Map = require('./../js/map.js').mapModule;
 
 $('head').append('<script src=\"https://maps.googleapis.com/maps/api/js?key=' + apiKey + '\" async defer></script>');
