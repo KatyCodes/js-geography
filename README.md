@@ -1,4 +1,4 @@
-# [Geography Quiz] https://katycodes.github.io/js-geography/
+# [Geography Quiz] (https://katycodes.github.io/js-geography/)
 
 #### A JavaScript application using the Google Maps API, October 13th, 2016
 
