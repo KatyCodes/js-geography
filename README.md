@@ -1,4 +1,4 @@
-# Georgraphy Quiz
+# [Geography Quiz] https://katycodes.github.io/js-geography/
 
 #### A JavaScript application using the Google Maps API, October 13th, 2016
 
@@ -7,6 +7,7 @@
 ## Description
 
 This application serves as a geography quiz game where the computer names a country and the user must pinpoint that country on the map. Once a user guesses wrong, their score resets. This app is an exercise in modern JavaScript using Node.js and Gulp. Node.js is used to create a local development server, while Gulp manages the project's assets. In addition, the application is styled with Bootstrap and Sass.
+Test your geography skills [here.](https://katycodes.github.io/js-geography/)
 
 
 ## Setup/Installation Instructions
