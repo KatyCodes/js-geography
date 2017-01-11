@@ -9,11 +9,14 @@ $(document).ready(function() {
   map.locateUser();
 
   $('#start').click(function() {
+    $('.intro').toggle();
     map.randomCountry();
     $('#country').html(map.answer);
-    $('#instruction').text("Now go to the map and click on the country");
+    $('#instruction').text("Now go to the map and click on this country:");
     $('#start').hide();
-
+    $('#scorediv').css('display', 'inline-flex');
+    $('#map').show();
+    $('html, body').animate({scrollTop:10000}, 8000);
   });
 
   $('#next').click(function(){
@@ -22,7 +25,7 @@ $(document).ready(function() {
     map.randomCountry();
     $('#country').html(map.answer);
     map.marker.setMap(null);
-    $('#instruction').text("Now go to the map and click on the country");
+    $('#instruction').text("Now go to the map and click on this country:");
     $(this).hide();
     map.map.setZoom(2);
   });
