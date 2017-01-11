@@ -6,22 +6,25 @@
   <script src="build/js/vendor.min.js"></script>
   <script type="text/javascript" src="build/js/app.js"></script>
     </script>
+  <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Open+Sans" rel="stylesheet">
   <meta charset="utf-8">
   <title>API Practice - Google Maps</title>
 </head>
 <body>
   <div class='container'>
     <h1>Hello World!</h1>
-    <div id='map'></div>
+    <h4 class ='intro'>Test your geography skills and see how many countries you can point out on the map. </h4>
     <br>
-      <h4 id='instruction'>Click start to start!</h4>
+      <h4 id='instruction'>Click to start!</h4>
       <h3 id='country'></h3>
       <button id='start' class='btn btn-warning'>Start</button>
       <button id="next" class='btn btn-warning'>Play Again</button>
       <h3 id="countryClicked"></h3>
-      <hr>
-      <h2>Score:</h2>
-      <h2 id = "score" class="col-md-2 col-md-offset-5">0</h2>
+      <div id="scorediv">
+        <h2>Score: &nbsp</h2>
+        <h2 id = "score" class=>0</h2>
+      </div>
+      <div id='map'></div>
     </div>
   </div>
 </body>
