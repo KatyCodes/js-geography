@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-exports.apiKey = "AIzaSyCC7tb5bNrb6jyBHOUfApZkmPJQ87vlym8";
+exports.apiKey = "AIzaSyBkWbDaHxh3li0wk6VPELxqclkE_vPeGnA";
 
 },{}],2:[function(require,module,exports){
 var apiKey = require('./../.env').apiKey;
@@ -83,13 +83,14 @@ Map.prototype.locateUser = function() {
           } else {
             $('#instruction').text("Sorry, game over! That's " + _this.userGuess + ". See the map for the correct answer. Play again?");
             $('#next').show();
+            $('#country').hide();
             var markerPosition;
             $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + _this.answer + '&key=' + apiKey).then(function(response){
               markerPosition = response.results["0"].geometry.location;
               _this.marker = new google.maps.Marker({
                 position: markerPosition,
                 map: _this.map,
-                icon: '/js-geography/img/pin.png'
+                label: _this.answer
               });
               _this.map.setCenter(markerPosition);
               _this.map.setZoom(4);
@@ -113,7 +114,7 @@ exports.mapModule = Map;
 var apiKey = require('./../.env').apiKey;
 var Map = require('./../js/map.js').mapModule;
 
-$('head').append('<script src=\"https://maps.googleapis.com/maps/api/js?key=' + apiKey + '\" async defer></script>');
+$('head').append('<script src=\"https://maps.googleapis.com/maps/api/js?v=3&key=' + apiKey + '\" async defer></script>');
 
 $(document).ready(function() {
 
@@ -125,6 +126,7 @@ $(document).ready(function() {
     map.randomCountry();
     $('#country').html(map.answer);
     $('#instruction').text("Now go to the map and click on this country:");
+    $('#country').show();
     $('#start').hide();
     $('#scorediv').css('display', 'inline-flex');
     $('#map').show();

@@ -79,13 +79,14 @@ Map.prototype.locateUser = function() {
           } else {
             $('#instruction').text("Sorry, game over! That's " + _this.userGuess + ". See the map for the correct answer. Play again?");
             $('#next').show();
+            $('#country').hide();
             var markerPosition;
             $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + _this.answer + '&key=' + apiKey).then(function(response){
               markerPosition = response.results["0"].geometry.location;
               _this.marker = new google.maps.Marker({
                 position: markerPosition,
                 map: _this.map,
-                icon: '/js-geography/img/pin.png'
+                label: _this.answer
               });
               _this.map.setCenter(markerPosition);
               _this.map.setZoom(4);
