@@ -89,7 +89,7 @@ Map.prototype.locateUser = function() {
               _this.marker = new google.maps.Marker({
                 position: markerPosition,
                 map: _this.map,
-                icon: '/img/pin.png'
+                icon: '/js-geography/img/pin.png'
               });
               _this.map.setCenter(markerPosition);
               _this.map.setZoom(4);
@@ -103,7 +103,7 @@ Map.prototype.locateUser = function() {
       $('#map').text(error);
     });
   } else {
-    $('#map').text('Please enable location access in your browser.');
+    $('#map').text('Please enable location access in your browser. If you choose not to this may affect the performance of the game.');
   }
 };
 
