@@ -90,7 +90,13 @@ Map.prototype.locateUser = function() {
               _this.marker = new google.maps.Marker({
                 position: markerPosition,
                 map: _this.map,
-                label: _this.answer
+                label: {
+                    text: _this.answer,
+                    color: 'black',
+                    fontFamily: 'Roboto, Arial, sans-serif',
+                    fontWeight: 'bolder',
+                    fontSize: '2rem'
+                  }
               });
               _this.map.setCenter(markerPosition);
               _this.map.setZoom(4);
