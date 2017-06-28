@@ -146,6 +146,7 @@ $(document).ready(function() {
     $('#country').html(map.answer);
     map.marker.setMap(null);
     $('#instruction').text("Now go to the map and click on this country:");
+    $('#country').show();
     $(this).hide();
     map.map.setZoom(2);
   });
