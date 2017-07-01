@@ -145,6 +145,9 @@ $(document).ready(function() {
     map.randomCountry();
     $('#country').html(map.answer);
     map.marker.setMap(null);
+    function clearMarkers() {
+        setMapOnAll(null);
+      };
     $('#instruction').text("Now go to the map and click on this country:");
     $('#country').show();
     $(this).hide();
