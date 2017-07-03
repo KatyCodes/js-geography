@@ -6,9 +6,11 @@ $('head').append('<script src=\"https://maps.googleapis.com/maps/api/js?v=3&key=
 $(document).ready(function() {
 
   var map = new Map();
-  // map.locateUser();
+
 
   $('#start').click(function() {
+    map.playGame();
+
     $('.intro').toggle();
     map.randomCountry();
     $('#country').html(map.answer);
@@ -26,9 +28,6 @@ $(document).ready(function() {
     map.randomCountry();
     $('#country').html(map.answer);
     map.marker.setMap(null);
-    function clearMarkers() {
-        setMapOnAll(null);
-      };
     $('#instruction').text("Now go to the map and click on this country:");
     $('#country').show();
     $(this).hide();

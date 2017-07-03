@@ -17,7 +17,7 @@ This application serves as a geography quiz game where the computer names a coun
 * Using the command line, navigate to the project's root directory
 * Install dependencies by running $ npm install and $ bower install
 * Create a .env file in the root directory of the project and fill with: exports.apiKey = "";
-* Retreive a free API Key from the Google Maps API online (https://developers.google.com/maps/documentation/javascript/get-api-key) and insert it between the quotes in the .env file.
+* Retrieve a free API Key from the Google Maps API online (https://developers.google.com/maps/documentation/javascript/get-api-key) and insert it between the quotes in the .env file.
 * Launch the local development server by running $ gulp serve
 
 ## Known Bugs
