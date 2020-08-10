@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   var map = new Map();
 
-
+console.log("yup");
   $('#start').click(function() {
     map.playGame();
 

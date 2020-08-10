@@ -1,7 +1,7 @@
 {
   "name": "api-practice",
   "version": "1.0.0",
-  "description": "",
+  "description": "#### A JavaScript application using the Google Maps API, October 13th, 2016",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +22,16 @@
     "gulp-util": "^3.0.7",
     "jshint": "^2.9.3",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "dependencies": {
+    "gulp-sourcemaps": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KatyCodes/js-geography.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KatyCodes/js-geography/issues"
+  },
+  "homepage": "https://github.com/KatyCodes/js-geography#readme"
 }
