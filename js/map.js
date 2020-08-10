@@ -64,8 +64,11 @@ Map.prototype.playGame = function() {
       _this.map.addListener("click", function (event) {
         var latitude = event.latLng.lat();
         var longitude = event.latLng.lng();
-        $.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + apiKey).then(function(response){
+        $.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + apiKey).then(function(response)
+        {
+          console.log(response);
           response.results["0"].address_components.forEach(function(item) {
+
             if (item.types.includes('country')) {
               _this.userGuess = item.long_name;
             }
