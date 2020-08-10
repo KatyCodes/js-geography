@@ -62,8 +62,7 @@ Map.prototype.playGame = function() {
           },
         ]
       });
-    var address = place.address_components;
-    var code = address[address.length -1].long_name; 
+   
 
       _this.map.setOptions({ draggableCursor: 'url("/../img/cursor.png"), auto' });
 
