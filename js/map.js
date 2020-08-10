@@ -59,7 +59,7 @@ Map.prototype.playGame = function() {
         ]
       });
 
-      _this.map.setOptions({ draggableCursor: 'url("/../img/cursor.png"), auto' });
+      _this.map.setOptions({ draggableCursor: 'url("../img/cursor.png"), auto' });
 
       _this.map.addListener("click", function (event) {
         var latitude = event.latLng.lat();
