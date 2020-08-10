@@ -62,15 +62,15 @@ Map.prototype.playGame = function() {
           },
         ]
       });
+    var address = place.address_components;
+    var code = address[address.length -1].long_name; 
 
       _this.map.setOptions({ draggableCursor: 'url("/../img/cursor.png"), auto' });
 
       _this.map.addListener("click", function (event) {
         var latitude = event.latLng.lat();
         var longitude = event.latLng.lng();
-        $.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + apiKey).then(function(response){
-           var address = place.address_components;
-           var code = address[address.length -1].long_name;  
+        $.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + apiKey).then(function(response){ 
           response.results["0"].address_components.forEach(function(item) {
             if (item.types.includes('country')) {
               _this.userGuess = item.long_name;
